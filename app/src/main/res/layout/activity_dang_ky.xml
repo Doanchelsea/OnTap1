@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:weightSum="10"
     android:adjustViewBounds="true"
-    tools:context=".DangKyActivity">
+    tools:context=".activity.DangKyActivity">
     <android.support.v7.widget.Toolbar
         android:background="#0099FF"
         app:titleTextColor="#f9f6f5"
