@@ -66,6 +66,14 @@
             android:hint=" Mật Khẩu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
+        <CheckBox
+            android:layout_marginTop="5dp"
+            android:id="@+id/checkBox"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:text="Lưu Mật Khẩu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
         <Button
             android:id="@+id/btnDangnhap"
             android:textColor="#000000"

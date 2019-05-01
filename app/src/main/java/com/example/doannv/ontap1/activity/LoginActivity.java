@@ -1,11 +1,17 @@
 package com.example.doannv.ontap1.activity;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,12 +28,16 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+
 public class LoginActivity extends AppCompatActivity {
     ProgressDialog loadingBar;
      EditText edTaikhoan;
      EditText edMatkhau;
      Button btnDangnhap;
      TextView tvDangky;
+     CheckBox checkBox;
+    private SharedPreferences preferences;
+
 
 
 
@@ -37,6 +47,15 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         AnhXa();
         EventButton();
+            String username = preferences.getString("username", "");
+            String password = preferences.getString("password", "");
+            edTaikhoan.setText(username);
+            edMatkhau.setText(password);
+            if (username.equals("")){
+                checkBox.setChecked(false);
+            }else {
+                checkBox.setChecked(true);
+        }
     }
 
     private void EventButton() {
@@ -80,6 +99,14 @@ public class LoginActivity extends AppCompatActivity {
                                 if (taikhoan1.equals(taikhoan) && matkhau1.equals(matkhau) ){
                                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                     intent.putExtra("login",taikhoan);
+                                    intent.putExtra("login1",matkhau);
+                                    if (checkBox.isChecked()){
+                                        preferences.edit().putString("username", taikhoan1).commit();
+                                        preferences.edit().putString("password", matkhau1).commit();
+                                    }else {
+                                        preferences.edit().putString("username", "").commit();
+                                        preferences.edit().putString("password", "").commit();
+                                    }
                                     startActivity(intent);
                                     loadingBar.hide();
                                     return;
@@ -115,5 +142,7 @@ public class LoginActivity extends AppCompatActivity {
         edMatkhau = (EditText) findViewById(R.id.edMatkhau);
         btnDangnhap = (Button) findViewById(R.id.btnDangnhap);
         tvDangky = (TextView) findViewById(R.id.tvDangky);
+        checkBox = findViewById(R.id.checkBox);
+        preferences = getSharedPreferences("Account", Context.MODE_PRIVATE);
     }
 }

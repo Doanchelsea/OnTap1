@@ -3,6 +3,7 @@
     package="com.example.doannv.ontap1">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -20,7 +21,6 @@
         </activity>
         <activity android:name=".activity.MainActivity" />
         <activity android:name=".activity.DangKyActivity" />
-        <activity android:name=".activity.LoginFbActivity"></activity>
     </application>
 
 </manifest>
