@@ -34,7 +34,7 @@ public class DangKyActivity extends AppCompatActivity {
      EditText edmkdk;
      EditText edmkdkl;
      Button btnDangky;
-    ProgressDialog loadingBar;
+     ProgressDialog loadingBar;
 
 
     @Override

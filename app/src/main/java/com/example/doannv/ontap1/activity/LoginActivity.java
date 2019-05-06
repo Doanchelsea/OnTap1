@@ -8,11 +8,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,6 +38,8 @@ public class LoginActivity extends AppCompatActivity {
      EditText edTaikhoan;
      EditText edMatkhau;
      Button btnDangnhap;
+    View footerview;
+    RelativeLayout progressBar;
      TextView tvDangky;
      CheckBox checkBox;
     private SharedPreferences preferences;
@@ -85,12 +91,14 @@ public class LoginActivity extends AppCompatActivity {
                         if (response != null){
                             String taikhoan = "";
                             String matkhau = "";
+                            String hoten = "";
                             String ID = "";
                             for (int i=0; i<response.length();i++){
                                 try {
                                     JSONObject jsonObject = response.getJSONObject(i);
                                     taikhoan = jsonObject.getString("taikhoan");
                                     matkhau = jsonObject.getString("matkhau");
+                                    hoten = jsonObject.getString("hoten");
                                     ID = jsonObject.getString("id");
 
                                 } catch (JSONException e) {
@@ -98,8 +106,7 @@ public class LoginActivity extends AppCompatActivity {
                                 }
                                 if (taikhoan1.equals(taikhoan) && matkhau1.equals(matkhau) ){
                                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                                    intent.putExtra("login",taikhoan);
-                                    intent.putExtra("login1",matkhau);
+                                    intent.putExtra("login",hoten);
                                     if (checkBox.isChecked()){
                                         preferences.edit().putString("username", taikhoan1).commit();
                                         preferences.edit().putString("password", matkhau1).commit();
@@ -144,5 +151,9 @@ public class LoginActivity extends AppCompatActivity {
         tvDangky = (TextView) findViewById(R.id.tvDangky);
         checkBox = findViewById(R.id.checkBox);
         preferences = getSharedPreferences("Account", Context.MODE_PRIVATE);
+        LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
+        footerview = inflater.inflate(R.layout.passs, null);
+        progressBar = findViewById(R.id.menu_ok);
+        progressBar.setVisibility(View.INVISIBLE);
     }
 }
