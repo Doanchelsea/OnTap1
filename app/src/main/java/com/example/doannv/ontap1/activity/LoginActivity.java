@@ -1,5 +1,7 @@
 package com.example.doannv.ontap1.activity;
 
+import android.animation.Animator;
+import android.animation.ObjectAnimator;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -10,6 +12,8 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -38,10 +42,14 @@ public class LoginActivity extends AppCompatActivity {
      EditText edTaikhoan;
      EditText edMatkhau;
      Button btnDangnhap;
-    View footerview;
-    RelativeLayout progressBar;
+     View footerview;
+     ImageView okok;
+     RelativeLayout progressBar;
+     RelativeLayout relativeLayout;
      TextView tvDangky;
      CheckBox checkBox;
+    private Animator mCurrentAnimator;
+    private int mShortAnimationDuration;
     private SharedPreferences preferences;
 
 
@@ -152,8 +160,8 @@ public class LoginActivity extends AppCompatActivity {
         checkBox = findViewById(R.id.checkBox);
         preferences = getSharedPreferences("Account", Context.MODE_PRIVATE);
         LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
-        footerview = inflater.inflate(R.layout.passs, null);
         progressBar = findViewById(R.id.menu_ok);
         progressBar.setVisibility(View.INVISIBLE);
+        okok= findViewById(R.id.okok);
     }
 }

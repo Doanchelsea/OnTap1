@@ -24,6 +24,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -61,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
     NavigationView navigationView;
     Toolbar toolbarhome;
     String DateTime;
+    RelativeLayout relativeLayout;
     String TimeDate;
     Bitmap bitmap;
 
@@ -186,7 +188,6 @@ public class MainActivity extends AppCompatActivity {
                             }
                         };
                         requestQueue.add(stringRequest);
-
                     }
                 }){
                     @Override
