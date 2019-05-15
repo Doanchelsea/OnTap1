@@ -130,10 +130,4 @@
         layout="@layout/passs"
         >
     </include>
-    <ImageView
-        android:id="@+id/expanded_image"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="invisible" />
-
 </RelativeLayout>

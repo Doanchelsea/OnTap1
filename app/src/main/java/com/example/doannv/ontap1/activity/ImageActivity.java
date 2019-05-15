@@ -22,6 +22,7 @@ public class ImageActivity extends AppCompatActivity {
     private Animator mCurrentAnimator;
     private int mShortAnimationDuration;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,15 +46,6 @@ public class ImageActivity extends AppCompatActivity {
         mShortAnimationDuration = getResources().getInteger(android.R.integer.config_shortAnimTime);
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                NavUtils.navigateUpTo(this, new Intent(this, MainActivity.class));
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
 
     private void zoomImageFromThumb(final View thumbView, int imageResId) {
         if (mCurrentAnimator != null) {

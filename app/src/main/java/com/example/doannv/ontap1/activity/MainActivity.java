@@ -87,25 +87,25 @@ public class MainActivity extends AppCompatActivity {
     private void UserMenuSelector(MenuItem menuItem) {
         switch (menuItem.getItemId())
         {
-            case R.id.nav_home:
-                Toast.makeText(this, "Home", Toast.LENGTH_SHORT).show();
-                break;
-
-            case R.id.nav_thongtin:
-                Toast.makeText(this, "Thông Tin", Toast.LENGTH_SHORT).show();
-                break;
-
-            case R.id.nav_lichsu:
-                Toast.makeText(this, "Lịch Sử", Toast.LENGTH_SHORT).show();
-                break;
-
-            case R.id.nav_messingger:
-                Toast.makeText(this, "Nhắn Tin", Toast.LENGTH_SHORT).show();
-                break;
-
-            case R.id.nav_setiing:
-                Toast.makeText(this, "Cài Đặt", Toast.LENGTH_SHORT).show();
-                break;
+//            case R.id.nav_home:
+//                Toast.makeText(this, "Home", Toast.LENGTH_SHORT).show();
+//                break;
+//
+//            case R.id.nav_thongtin:
+//                Toast.makeText(this, "Thông Tin", Toast.LENGTH_SHORT).show();
+//                break;
+//
+//            case R.id.nav_lichsu:
+//                Toast.makeText(this, "Lịch Sử", Toast.LENGTH_SHORT).show();
+//                break;
+//
+//            case R.id.nav_messingger:
+//                Toast.makeText(this, "Nhắn Tin", Toast.LENGTH_SHORT).show();
+//                break;
+//
+//            case R.id.nav_setiing:
+//                Toast.makeText(this, "Cài Đặt", Toast.LENGTH_SHORT).show();
+//                break;
         }
     }
 
@@ -146,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
         Calendar calendar = Calendar.getInstance();
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
         DateTime = dateFormat.format(calendar.getTime());
-        SimpleDateFormat timeFormat = new SimpleDateFormat("mm");
+        SimpleDateFormat timeFormat = new SimpleDateFormat("HH-mm");
         TimeDate = timeFormat.format(calendar.getTime());
         tvName.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -163,6 +163,7 @@ public class MainActivity extends AppCompatActivity {
                 StringRequest stringRequest = new StringRequest(Request.Method.POST, Server.duongdananhok, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+
                     }
                 }, new Response.ErrorListener() {
                     @Override
@@ -207,7 +208,9 @@ public class MainActivity extends AppCompatActivity {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         if (requestCode == REQUET_FODER){
             if (grantResults.length>0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
-                Intent intent = new  Intent(Intent.ACTION_PICK);
+//                  Intent intent = new  Intent(Intent.ACTION_PICK);
+//                Intent intent = new  Intent(Intent.ACTION_ATTACH_DATA);
+                Intent intent = new  Intent(Intent.ACTION_GET_CONTENT);
                 intent.setType("image/*");
                 startActivityForResult(Intent.createChooser(intent,"Select Image"),REQUET_FODER);
             }
@@ -234,6 +237,7 @@ public class MainActivity extends AppCompatActivity {
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
+    // pphuowngthuc post anh
     private String imageToString(Bitmap bitmap){
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.PNG,100,outputStream);

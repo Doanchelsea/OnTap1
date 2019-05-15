@@ -42,10 +42,8 @@ public class LoginActivity extends AppCompatActivity {
      EditText edTaikhoan;
      EditText edMatkhau;
      Button btnDangnhap;
-     View footerview;
      ImageView okok;
      RelativeLayout progressBar;
-     RelativeLayout relativeLayout;
      TextView tvDangky;
      CheckBox checkBox;
     private Animator mCurrentAnimator;
@@ -77,7 +75,6 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onClick(final View v) {
-
                 final String taikhoan1 = edTaikhoan.getText().toString().trim();
                 final String matkhau1 = edMatkhau.getText().toString().trim();
 
