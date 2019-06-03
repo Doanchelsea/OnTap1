@@ -40,6 +40,13 @@ public class OnTabActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        btntap4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(OnTabActivity.this,Tabs4Activity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 }
