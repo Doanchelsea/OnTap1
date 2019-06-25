@@ -34,7 +34,7 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.OnTabActivity">
+        <activity android:name=".activity.SpinerActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -53,7 +53,8 @@
         <activity android:name=".activity.TabsActivity" />
         <activity android:name=".activity.Tabs2Activity" />
         <activity android:name=".activity.Tabs3Activity" />
-        <activity android:name=".activity.Tabs4Activity"></activity>
+        <activity android:name=".activity.Tabs4Activity" />
+        <activity android:name=".activity.OnTabActivity"></activity>
     </application>
 
 </manifest>

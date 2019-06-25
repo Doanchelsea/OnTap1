@@ -44,6 +44,7 @@ public class OnTabActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(OnTabActivity.this,Tabs4Activity.class);
+                intent.putExtra("OK","ok1212");
                 startActivity(intent);
             }
         });
